@@ -11,10 +11,12 @@ import android.widget.Toast;
 import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
 
+import com.github.appintro.AppIntro;
 import com.github.appintro.AppIntro2;
+import com.github.appintro.AppIntroCustomLayoutFragment;
 import com.github.appintro.AppIntroFragment;
 
-public class introactivity extends AppIntro2 {
+public class introactivity extends AppIntro {
 
 
 
@@ -27,44 +29,25 @@ public class introactivity extends AppIntro2 {
 
         int check = preferences.getInt("checkk",2);
 
-            if(check == 1)
+      /*      if(check == 3)
             {
                 startActivity(new Intent(getApplicationContext(),MainActivity.class));
                 finish();
             }
-
+*/
 
 
 
             getSupportActionBar().hide();
         setWizardMode(true);
         setImmersive(true);
-        addSlide(AppIntroFragment.newInstance(
-                "",
-                "",
-                R.drawable.one,
-                Color.WHITE
-                ));
-        addSlide(AppIntroFragment.newInstance(
-                "",
-                "",
-                R.drawable.two,
-                Color.WHITE
-        ));addSlide(AppIntroFragment.newInstance(
-                "",
-                "",
-                R.drawable.three,
-                Color.WHITE
-        ));
-        addSlide(AppIntroFragment.newInstance(
-                "",
-                "",
-                R.drawable.four,
-                Color.WHITE
 
-        ));
 
-            setIndicatorColor(R.color.colorAccent,R.color.colorPrimary);
+        addSlide(AppIntroCustomLayoutFragment.newInstance(R.layout.activity_page1));
+        addSlide(AppIntroCustomLayoutFragment.newInstance(R.layout.activity_page2));
+        addSlide(AppIntroCustomLayoutFragment.newInstance(R.layout.activity_page3));
+        addSlide(AppIntroCustomLayoutFragment.newInstance(R.layout.activity_page4));
+            setIndicatorColor(R.color.colorAccent,R.color.yellow);
 
     }
 
